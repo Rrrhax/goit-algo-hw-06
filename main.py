@@ -39,8 +39,8 @@ class Record:
         self.phones.remove(phone)
         
     def edit_phone(self, old_phone, new_phone):
+		self.add_phone(new_phone)
         self.remove_phone(old_phone) #можно сделать с проверкой через if на ValueError но специально сделал таким образом, ибо 1- ValueError вложен уже в обе функции 2- для краткости и чистоты кода
-        self.add_phone(new_phone)
         return
         
 
