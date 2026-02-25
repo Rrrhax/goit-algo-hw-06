@@ -37,11 +37,12 @@ class Record:
         if phone is None:
             raise ValueError("Phone not found")
         self.phones.remove(phone)
-        
+		
     def edit_phone(self, old_phone, new_phone):
-		self.add_phone(new_phone)
-        self.remove_phone(old_phone) #можно сделать с проверкой через if на ValueError но специально сделал таким образом, ибо 1- ValueError вложен уже в обе функции 2- для краткости и чистоты кода
-        return
+        if self.find_phone(old_phone):
+            self.add_phone(new_phone)
+            self.remove_phone(old_phone)
+        else: raise ValueError("Old phone not found")
         
 
     def __str__(self):
